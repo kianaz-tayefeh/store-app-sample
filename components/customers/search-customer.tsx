@@ -1,9 +1,7 @@
 import { TextField } from "@mui/material";
 import React, { Fragment } from "react";
-import { useCustomer } from "../../Store/customer-context";
 import { usehttpState } from "../../Store/http-state-context";
 import ErrorModal from "../ui/ErrorModal";
-import LoadingIndicator from "../ui/LoadingIndicator";
 import classes from "./search-customer.module.css";
 
 const SearchCustomer = (props: any) => {
@@ -17,9 +15,7 @@ const SearchCustomer = (props: any) => {
     const timer = setTimeout(() => {
       if (searchInput === searchRef.current?.value) {
         let url =
-          searchInput.length === 0
-            ? "/api/customer/read-customer"
-            : "/api/customer/" + searchInput;
+          searchInput.length === 0 ? "/read-customer" : "/" + searchInput;
         props.onLoadCustomers(url);
       }
     }, 500);
@@ -34,9 +30,9 @@ const SearchCustomer = (props: any) => {
 
   return (
     <Fragment>
-      {httpState.error && (
+      {/* {httpState.error && (
         <ErrorModal onClose={clearError}>{httpState.error}</ErrorModal>
-      )}
+      )} */}
       <section className={classes.Search}>
         <TextField
           id="search"
@@ -50,7 +46,7 @@ const SearchCustomer = (props: any) => {
         />
         <br />
       </section>
-      {httpState.isLoading && <LoadingIndicator />}
+      {/* {httpState.isLoading && <LoadingIndicator />} */}
     </Fragment>
   );
 };

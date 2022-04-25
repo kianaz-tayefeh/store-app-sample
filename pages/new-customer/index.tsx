@@ -7,7 +7,6 @@ import ICustomer from "../../interfaces/iCustomer";
 import { useCustomer } from "../../Store/customer-context";
 import { usehttpState } from "../../Store/http-state-context";
 import ErrorModal from "../../components/ui/ErrorModal";
-import LoadingIndicator from "../../components/ui/LoadingIndicator";
 
 const NewCustomerPage = () => {
   const router = useRouter();
@@ -58,7 +57,7 @@ const NewCustomerPage = () => {
         <ErrorModal onClose={clearError}>{httpState.error}</ErrorModal>
       )}
       <NewCustomerForm onAddCustomer={addCustomerHandler} />
-      {httpState.isLoading && <LoadingIndicator />}
+      {/* {httpState.isLoading && <LoadingIndicator />} */}
     </Fragment>
   );
 };
