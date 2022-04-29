@@ -4,7 +4,6 @@ import Head from "next/head";
 import React from "react";
 import CustomerList from "../components/customers/customer-list";
 import SearchCustomer from "../components/customers/search-customer";
-import { useSnackbar } from "../Store/snackbar-context";
 import styles from "../styles/Home.module.css";
 import { useHttpGet } from "./hooks/useHttpGet";
 

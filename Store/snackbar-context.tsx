@@ -12,27 +12,27 @@ import React, { createContext, useState } from "react";
 
 export type MessageType = "success" | "error" | "warning" | "info";
 
-export interface ITodo {
+export interface ISnack {
   message: string;
   messageType: MessageType;
   open: boolean;
 }
-export type TodoContextType = {
-  snack: ITodo;
-  showMessage: (todo: ITodo) => void;
+export type SnackContextType = {
+  snack: ISnack;
+  showMessage: (todo: ISnack) => void;
 };
 
-export const SnackbarContext = createContext<TodoContextType | null>(null);
+export const SnackbarContext = createContext<SnackContextType | null>(null);
 
 const SnackBarProvider: React.FC<React.ReactNode> = ({ children }) => {
-  const [snack, setSnack] = React.useState<ITodo>({
+  const [snack, setSnack] = React.useState<ISnack>({
     message: "",
     messageType: "info",
     open: false,
   });
 
-  const showMessage = (todo: ITodo) => {
-    const newSnack: ITodo = {
+  const showMessage = (todo: ISnack) => {
+    const newSnack: ISnack = {
       message: todo.message,
       messageType: todo.messageType,
       open: true,
@@ -47,7 +47,6 @@ const SnackBarProvider: React.FC<React.ReactNode> = ({ children }) => {
     if (reason === "clickaway") {
       return;
     }
-
     setSnack({
       ...snack,
       open: false,
@@ -57,7 +56,7 @@ const SnackBarProvider: React.FC<React.ReactNode> = ({ children }) => {
   const action = (
     <React.Fragment>
       <Button color="secondary" size="small" onClick={handleClose}>
-        UNDO
+        Close
       </Button>
       <IconButton
         size="small"

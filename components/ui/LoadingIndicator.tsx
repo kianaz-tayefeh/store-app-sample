@@ -1,12 +1,13 @@
 import * as React from "react";
 import { Stack, CircularProgress } from "@mui/material";
 import { ReactElement } from "react";
-import { useIsFetching } from "react-query";
+import { useIsFetching, useIsMutating } from "react-query";
 
 export function LoadingIndicator(): ReactElement {
   const isFetching = useIsFetching();
+  const isMutating = useIsMutating();
 
-  const visibility = isFetching ? "visible" : "hidden";
+  const visibility = isFetching || isMutating ? "visible" : "hidden";
 
   return (
     <>

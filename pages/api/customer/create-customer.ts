@@ -17,7 +17,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
     const result = await collection.insertOne(req.body);
     // res.status(200).json({ message: "Customer inserted!" });
     res.end(JSON.stringify(result));
-  
+
     connection.close();
   } catch (error) {
     throw new Error("Connection Fail");
