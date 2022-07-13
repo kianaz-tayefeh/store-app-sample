@@ -1,0 +1,33 @@
+	- customerProject (name of project : store-app)
+		+ add nextjs
+		+ layout o mainNavigation
+		+ extensions : 
+				// ESLINT
+				PRETTIER
+				Material icon
+				Chrome				
+		+ page : Customer-List, New-Customer, CustomerDetail ya [CustomerId]
+		+ component haye customerForm, customeList, customerDetail
+		+ field : id, name,  address, description
+		- , birthDate, email, phone , active, description, customerType, location, 
+			txtbox
+			datetime
+			dropdown
+			checkbox
+			textarea for description
+			multiSelect		
+			image(profile)
+		+ create, read
+		+ estefade az useContext
+		+ ezafe kardan search		
+		+ estefade az mongodb baraye save e data
+		- optimize ta hamin ja
+		- ezafe kardane modal error
+		- Add mui(material ui)
+		- 
+
+
+har chi type any daram ro eslah konam
+-----------------------------------------------------------
+React Hook Form
+- yarn add formik
